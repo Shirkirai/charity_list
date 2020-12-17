@@ -1,4 +1,5 @@
-require "charity_list/version"
+require_relative "./charity_list/version"
+require_relative "./charity_list/cli"
 
 module CharityList
   class Error < StandardError; end
