@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require_relative '../lib/charity_list'
+require_relative '../lib/environment'
 
 CharityList::CLI.new.call
