@@ -38,6 +38,7 @@ class CharityList::CLI
 
   def show_charity_organizations_for(chosen_category)
       category = @category_list[chosen_category - 1]
+      category.get_organizations
       puts "Here are all the charity organizations under the #{category.title}"
       #binding.pry
       #need to insert the scraper class here to provide the charity organization names and the specific metrics for them"

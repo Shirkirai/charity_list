@@ -9,4 +9,18 @@ class CharityList::Scraper
             CharityList::Charityorgs.new(title)
         end
     end
+
+    def self.scrape_organizations(category)
+      binding.pry
+      CharityList::Organizations.new("VA", "aid")
+
+      #doc = Nokogiri::HTML(open("https://www.charitywatch.org/top-rated-charities/all-charities"))
+
+      #organizations = doc.css()
+
+      #organization_names = organizations.each do |o|
+        #title = o.text.strip
+
+    end
+
 end
