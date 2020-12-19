@@ -1,2 +1,2 @@
-class CharityList::charitylist
+class CharityList::Charitylist
 end
