@@ -12,13 +12,16 @@ class CharityList::CLI
 
   def get_charity_categories
       #list the charity categories
+      #can test by using the fake data below
+      #Fake Data 1: CharityList::Charityorgs.new("AIDS")
+      #Fake Data 2: CharityList::Charityorgs.new("VA")
       @category_list = CharityList::Charityorgs.all
   end
 
   def list_charity_categories
       puts "\nPlease type in the number corresponding to a specific category to see charity organizations listed under it\n"
       @category_list.each.with_index(1) do |category, index|
-          puts "#{index}. #{category}"
+          puts "#{index}. #{category.title}" #had to put category.title to print out the actual names of the categories
       end
   end
 

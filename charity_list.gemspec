@@ -9,19 +9,19 @@ Gem::Specification.new do |spec|
   spec.authors       = ["'Jung Lee'"]
   spec.email         = ["'lee.jung.s95@gmail.com'"]
 
-  spec.summary       = %q{This app will provide the user with a list of charity organizations with its metrics shown.}
-  spec.description   = %q{Same as the summary.}
-  spec.homepage      = "http://www.anything.com"
+  spec.summary       = %q{This app will provide a list of charity organizations with its relevant metrics to help you learn more about them.}
+  spec.description   = %q{Same as summary}
+  spec.homepage      = "https://github.com/Shirkirai/charity_list"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
   if spec.respond_to?(:metadata)
-    spec.metadata["allowed_push_host"] = "http://mygemserver.com"
+    spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
     spec.metadata["homepage_uri"] = spec.homepage
-    spec.metadata["source_code_uri"] = "http://www.anything.com"
-    spec.metadata["changelog_uri"] = "http://www.anything.com"
+    spec.metadata["source_code_uri"] = "https://github.com/Shirkirai/charity_list"
+    spec.metadata["changelog_uri"] = "https://github.com/Shirkirai/charity_list"
   else
     raise "RubyGems 2.0 or newer is required to protect against " \
       "public gem pushes."
@@ -39,5 +39,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 2.0"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "pry"
-  spec.add_dependency "nokogiri"
+  development_dependency "nokogiri"
 end

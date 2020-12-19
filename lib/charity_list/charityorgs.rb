@@ -1,9 +1,18 @@
 class CharityList::Charityorgs
-    @@all = ["a", 'b', 'c', 'd']
+    @@all = []
 
-    attr_accessor :name
+    attr_accessor :title
+
+    def initialize(title)
+      @title = title
+      save
+    end
 
     def self.all
         @@all
+    end
+
+    def save
+      @@all << self
     end
 end
