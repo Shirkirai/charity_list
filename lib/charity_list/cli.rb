@@ -16,7 +16,7 @@ class CharityList::CLI
   end
 
   def list_charity_categories
-      puts "\nProvide the number corresponding to a specific category to see charity organizations listed under it\n"
+      puts "\nPlease type in the number corresponding to a specific category to see charity organizations listed under it\n"
       @category_list.each.with_index(1) do |category, index|
           puts "#{index}. #{category}"
       end
