@@ -6,7 +6,7 @@ class CharityList::Scraper
 
         categories.each do |c|
             name = c.text
-            CharityList::charitylist
+            CharityList::Charityorgs
         end
     end
 end

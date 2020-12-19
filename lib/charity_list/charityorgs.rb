@@ -1,0 +1,2 @@
+class CharityList::Charityorgs
+end
