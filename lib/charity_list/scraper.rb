@@ -4,9 +4,9 @@ class CharityList::Scraper
 
         categories = doc.css("div#list-all.tab-pane.fade.show.active h2.mb-3")
 
-        categories.each do |c|
-            name = c.text
-            CharityList::Charityorgs
+        category_names = categories.each do |c|
+            title = c.text.strip
+            CharityList::Charityorgs.new(title)
         end
     end
 end

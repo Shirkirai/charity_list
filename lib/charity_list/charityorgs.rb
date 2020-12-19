@@ -1,7 +1,7 @@
 class CharityList::Charityorgs
     @@all = []
 
-    attr_accessor :title
+    attr_accessor :title, :organization
 
     def initialize(title)
       @title = title
@@ -9,6 +9,7 @@ class CharityList::Charityorgs
     end
 
     def self.all
+      CharityList::Scraper.scrape_categories if @@all.empty?
         @@all
     end
 
