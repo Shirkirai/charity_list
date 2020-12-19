@@ -10,3 +10,8 @@ User Flow outline
   - how much it costs to raise $100 worth of contribution
   - how much % of revenue is spent for overhead vs contribution
   - Mission Statement
+
+Classes
+-Event
+-CLI
+-Scraper
