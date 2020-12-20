@@ -11,7 +11,9 @@ class CharityList::Scraper
     end
 
     def self.scrape_organizations(category)
-      CharityList::Organization.new("VA", category)
+      CharityList::Organization.new("OMG", category)
+      CharityList::Organization.new("HO HO HO", category)
+      CharityList::Organization.new("NOOOO", category)
     end
 
 end
