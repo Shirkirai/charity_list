@@ -1,12 +1,12 @@
 class CharityList::Organization
 
-  attr_accessor :title, :charityorg, :contribution_amount, :contribution_per_hundred, :expense, :budget_percentage
+  attr_accessor :title, :category, :contribution_amount, :contribution_per_hundred, :expense, :budget_percentage
   @@all = []
 
-  def initialize(title, charityorg)
+  def initialize(title, category)
     @title = title
-    @charityorg = charityorg
-    add_to_charityorgs
+    @category = category
+    add_to_category
     save
   end
 
@@ -14,8 +14,8 @@ class CharityList::Organization
     @@all
   end
 
-  def add_to_charityorg
-    @charityorg.get_organizations << self unless @charityorg.get_organizations.include?(self)
+  def add_to_category
+    @category.organizations << self unless @category.organizations.include?(self)
   end
 
   def save

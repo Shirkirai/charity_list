@@ -6,13 +6,13 @@ class CharityList::Scraper
 
         category_names = categories.each do |c|
             title = c.text.strip
-            CharityList::Charityorgs.new(title)
+            CharityList::Charityorg.new(title)
         end
     end
 
     def self.scrape_organizations(charityorgs)
-      CharityList::Organization.new("VA", "aid")
-
+      CharityList::Organization.new("VA", charityorg)
+      CharityList::Organization.new("whatever is under the charityorg", charityorg)
       #doc = Nokogiri::HTML(open("https://www.charitywatch.org/top-rated-charities/all-charities"))
 
       #organizations = doc.css()

@@ -1,4 +1,4 @@
-class CharityList::Charityorg
+class CharityList::Category
     @@all = []
 
     attr_accessor :title, :organizations

@@ -16,7 +16,7 @@ class CharityList::CLI
       #Fake Data 1: CharityList::Charityorgs.new("AIDS")
       #Fake Data 2: CharityList::Charityorgs.new("VA")
 
-      @category_list = CharityList::Charityorgs.all
+      @category_list = CharityList::Charityorg.all
   end
 
   def list_charity_categories
