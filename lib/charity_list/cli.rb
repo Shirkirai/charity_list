@@ -16,7 +16,7 @@ class CharityList::CLI
       #Fake Data 1: CharityList::Charityorgs.new("AIDS")
       #Fake Data 2: CharityList::Charityorgs.new("VA")
 
-      @category_list = CharityList::Charityorg.all
+      @category_list = CharityList::Category.all
   end
 
   def list_charity_categories
@@ -37,8 +37,8 @@ class CharityList::CLI
   end
 
   def show_charity_organizations_for(chosen_category)
-      charityorg = @category_list[chosen_category - 1]
-      charityorg.get_organizations
+      category = @category_list[chosen_category - 1]
+      category.get_organizations
       puts "Here are all the charity organizations under the #{category.title}"
       binding.pry
       #need to insert the scraper class here to provide the charity organization names and the specific metrics for them"
