@@ -2,7 +2,7 @@ require_relative "./charity_list/version"
 require_relative "./charity_list/cli"
 require_relative "./charity_list/charityorgs"
 require_relative "./charity_list/scraper"
-require_relative "./charity_list/organization"
+require_relative "./charity_list/organization.rb"
 
 require 'pry'
 require 'nokogiri'
