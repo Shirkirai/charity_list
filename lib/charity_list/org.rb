@@ -1,4 +1,4 @@
-class CharityList::Category
+class CharityList::Org
     @@all = []
 
     attr_accessor :title, :organizations
@@ -10,8 +10,8 @@ class CharityList::Category
     end
 
     def self.all
-      CharityList::Scraper.scrape_categories if @@all.empty?
-        @@all
+      CharityList::Scraper.scrape_orgs if @@all.empty?
+      @@all
     end
 
     def get_organizations

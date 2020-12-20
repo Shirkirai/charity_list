@@ -1,11 +1,12 @@
 class CharityList::Organization
 
-  attr_accessor :title, :category, :contribution_amount, :contribution_per_hundred, :expense, :budget_percentage
+  attr_accessor :title, :category, :org_title, :contribution_amount, :contribution_per_hundred, :expense, :budget_percentage
   @@all = []
 
-  def initialize(title, category)
+  def initialize(title, org_title, category)
     @title = title
     @category = category
+    @org_title = org_title
     add_to_category
     save
   end

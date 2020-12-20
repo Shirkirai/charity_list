@@ -2,27 +2,29 @@ class CharityList::CLI
   def call
     puts "\nWelcome to Charity List!\n"
     #get_charity_categories - provide the users with a list of charity categories to choose from
-    get_charity_categories
-    list_charity_categories
-    get_user_charity_category
+    get_charity_orgs
+    list_charity_orgs
+    #get_user_charity_category
     #get_user_charity_category(category) - take user's charity category of their choosing
     #get_charity_organizations_in_category - provides the users with a list of charity organizations within the category
     #list_charity_organizations
   end
 
-  def get_charity_categories
+  def get_charity_orgs
       #list the charity categories
       #can test by using the fake data below
       #Fake Data 1: CharityList::Charityorgs.new("AIDS")
       #Fake Data 2: CharityList::Charityorgs.new("VA")
-      @category_list = CharityList::Category.all
+      @charity_orgs = CharityList::Org.all
+      #binding.pry
   end
 
-  def list_charity_categories
-      puts "\nPlease type in the number corresponding to a specific category to see charity organizations listed under it\n"
-      @category_list.each.with_index(1) do |category, index|
+  def list_charity_orgs
+      puts "\nPlease type in the number corresponding to a specific charity organization to see its metrics\n"
+      @charity_orgs.each.with_index(1) do |category, index|
         puts "#{index}. #{category.title}" #had to put category.title to print out the actual names of the categories
       end
+      #binding.pry
   end
 
 
