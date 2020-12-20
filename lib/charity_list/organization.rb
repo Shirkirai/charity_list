@@ -18,6 +18,10 @@ class CharityList::Organization
     @category.organizations << self unless @category.organizations.include?(self)
   end
 
+  def get_organization_metrics
+    #CharityList::Scraper.scrape_organizations
+  end
+
   def save
     @@all << self
   end

@@ -11,9 +11,14 @@ class CharityList::Scraper
     end
 
     def self.scrape_organizations(category)
-      CharityList::Organization.new("OMG", category)
-      CharityList::Organization.new("HO HO HO", category)
-      CharityList::Organization.new("NOOOO", category)
+      doc = Nokogiri::HTML(open("https://www.charitywatch.org/top-rated-charities/all-charities"))
+
+      organizations = doc.css("div#list-all.tab-pane.fade.show.active div.table-responsive table.table.mb-4 tbody tr")
+
+      organization_names = organizations.each do |o|
+        title = o.css("td a").text.strip
+        CharityList::Organization.new(title, category)
+      end
     end
 
 end

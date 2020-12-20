@@ -29,7 +29,9 @@ class CharityList::CLI
   def get_user_charity_category
       chosen_category = gets.strip.to_i
       show_charity_organizations_for(chosen_category) if valid_input(chosen_category, @category_list)
-
+      if !valid_input(chosen_category, @category_list)
+        get_user_charity_category
+      end
   end
 
   def valid_input(input, data)
@@ -40,15 +42,23 @@ class CharityList::CLI
       category = @category_list[chosen_category - 1]
       category.get_organizations
       puts "Here are all the charity organizations under the #{category.title}"
+      #binding.pry
       category.organizations.each.with_index(1) do |organization, index|
-        puts "#{index}. #{organization.title}"
+        puts "#{index}. #{organization.title}" if index == chosen_category
       end
       #need to insert the scraper class here to provide the charity organization names and the specific metrics for them"
       #CharityList::Charitylist.all.each_with_index do | charity|
         #  puts charity.name
-      #end
+      #end.
   end
 
-  def get_user_organization
+  def get_user_organization(category)
+    puts "Choose an organization to see its metrics"
+    input = gets.strip
+    organization = category.organizations[input.to_i - 1]
+    organization.get_user_organization
+  end
+
+  def get_organization_metrics
   end
 end
