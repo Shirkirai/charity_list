@@ -1,6 +1,6 @@
 class CharityList::Organization
 
-  attr_accessor :title, :charityorgs :contribution_amount, :contribution_per_hundred, :expense, :budget_percentage
+  attr_accessor :title, :charityorgs, :contribution_amount, :contribution_per_hundred, :expense, :budget_percentage
   @@all = []
 
   def initialize(title, charityorgs)

@@ -15,6 +15,7 @@ class CharityList::Charityorgs
     end
 
     def get_organizations
+      #binding.pry
       CharityList::Scraper.scrape_organizations(self) if @organizations.empty?
     end
 

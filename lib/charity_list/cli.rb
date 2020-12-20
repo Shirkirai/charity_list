@@ -40,7 +40,7 @@ class CharityList::CLI
       charityorgs = @category_list[chosen_category - 1]
       charityorgs.get_organizations
       puts "Here are all the charity organizations under the #{category.title}"
-      #binding.pry
+      binding.pry
       #need to insert the scraper class here to provide the charity organization names and the specific metrics for them"
       #CharityList::Charitylist.all.each_with_index do | charity|
         #  puts charity.name

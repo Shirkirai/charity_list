@@ -10,8 +10,8 @@ class CharityList::Scraper
         end
     end
 
-    def self.scrape_organizations(category)
-      CharityList::Organizations.new("VA", "aid")
+    def self.scrape_organizations(charityorgs)
+      CharityList::Organization.new("VA", "aid")
 
       #doc = Nokogiri::HTML(open("https://www.charitywatch.org/top-rated-charities/all-charities"))
 
