@@ -39,12 +39,17 @@ class CharityList::CLI
   end
 
   def show_charity_organizations_for(chosen_category)
+      #category is the category within the @@all array corresponding to the user input.
+      #for example, if the user input is 2, then it'll take the 2nd entry from the array. In this case, it'll be 2. AIDS Charities
       category = @category_list[chosen_category - 1]
+      #calls the get_organizations method from the Category Class to scrape organization data from the website
+      #the method below should shovel all the scraped organizations into @organizations array
       category.get_organizations
       puts "Here are all the charity organizations under the #{category.title}"
       #binding.pry
       category.organizations.each.with_index(1) do |organization, index|
-        puts "#{index}. #{organization.title}" if index == chosen_category
+        puts "#{index}. #{organization.category.title} - #{organization.title}" if index == chosen_category
+      #  binding.pry
       end
       #need to insert the scraper class here to provide the charity organization names and the specific metrics for them"
       #CharityList::Charitylist.all.each_with_index do | charity|
