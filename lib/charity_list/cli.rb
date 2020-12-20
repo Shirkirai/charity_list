@@ -47,8 +47,8 @@ class CharityList::CLI
       category.get_organizations
       puts "Here are all the charity organizations under the #{category.title}"
       #binding.pry
-      category.organizations.each.with_index(1) do |organization, index|
-        puts "#{index}. #{organization.category.title} - #{organization.title}" if index == chosen_category
+      category.organizations.each.w=[ith_index(1) do |organization, index|
+        puts "#{index}. #{organization.category.title} - #{organization.title}" #if index == chosen_category
       #  binding.pry
       end
       #need to insert the scraper class here to provide the charity organization names and the specific metrics for them"
