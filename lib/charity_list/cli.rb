@@ -1,10 +1,14 @@
 class CharityList::CLI
   def call
     puts "\nWelcome to Charity List!\n"
-    #get_charity_categories - provide the users with a list of charity categories to choose from
-    get_charity_orgs
-    list_charity_orgs
-    get_user_charity_org
+    @input = ""
+    until @input == "exit"
+      get_charity_orgs
+      list_charity_orgs
+      get_user_charity_org
+      what_next?
+    end
+    thanks
     #get_user_charity_category(category) - take user's charity category of their choosing
     #get_charity_organizations_in_category - provides the users with a list of charity organizations within the category
     #list_charity_organizations
@@ -31,15 +35,16 @@ class CharityList::CLI
 
   def get_user_charity_org
       chosen_org = gets.strip.to_i
-      show_charity_metrics_for(chosen_org) if valid_input(chosen_org, @charity_orgs)
-      if !valid_input(chosen_org, @charity_orgs)
-        get_user_charity_org until valid_input
+      if valid_input(chosen_org, @charity_orgs)
+        show_charity_metrics_for(chosen_org)
+      else
+        puts "Please put the correct number"
       end
   end
 
 
   def valid_input(input, data)
-      input.to_i <= data.length && input.to_i > 0
+      input.to_i <= data.length && input.to_i > 0 && input!= ('a'..'z')
   end
 
   def show_charity_metrics_for(chosen_org)
@@ -49,12 +54,23 @@ class CharityList::CLI
       #calls the get_organizations method from the Category Class to scrape organization data from the website
       #the method below should shovel all the scraped organizations into @organizations array
     metrics = org.get_metrics
-    puts "Here are all the metrics under #{org.title}"
-
+    puts "\nHere are all the metrics under #{org.title}\n"
     puts "\nURL: #{metrics.url}\n"
     puts "\nAddress: #{metrics.address}\n"
     puts "\nMission Statement: #{metrics.mission_statement}\n"
+    puts "\nProgram Percentage: #{metrics.pp}"
+    puts "  *This is the Amount spent on programs relative to overhead*\n"
+    puts "\nCost to Raise $100: #{metrics.cont_cost}\n"
+    puts "  *Amount spent to raise $100 of contributions."
     puts ""
-    binding.pry
+  end
+
+  def what_next?
+    puts "If you wish to see the list of charity organizations again, please type 'Y', but otherwise, please type 'exit'."
+    @input = gets.strip
+  end
+
+  def thanks
+    puts "Happy Charity Shopping!"
   end
 end
