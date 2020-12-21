@@ -1,6 +1,6 @@
 # CharityList
 
-Find out how much of your money actually goes into making an impact by various charity organizations
+Interested in donating to a charity? Use this app to easily look through 256 charity organizations to get information about them quickly!
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/charity_list`. To experiment with that code, run `bin/console` for an interactive prompt.
 
