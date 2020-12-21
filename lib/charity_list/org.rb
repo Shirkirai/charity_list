@@ -1,11 +1,12 @@
 class CharityList::Org
     @@all = []
 
-    attr_accessor :title, :organizations
+    attr_accessor :title, :url, :metrics
 
-    def initialize(title)
+    def initialize(title, url)
       @title = title
-      @organizations = []
+      @url = url
+      @metrics = []
       save
     end
 
@@ -14,8 +15,10 @@ class CharityList::Org
       @@all
     end
 
-    def get_organizations
-      CharityList::Scraper.scrape_organizations(self) if @organizations.empty?
+    def get_metrics
+    
+      CharityList::Scraper.scrape_metrics(self) if @metrics.empty?
+
     end
 
     def save

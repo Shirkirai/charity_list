@@ -4,7 +4,7 @@ class CharityList::CLI
     #get_charity_categories - provide the users with a list of charity categories to choose from
     get_charity_orgs
     list_charity_orgs
-    #get_user_charity_category
+    get_user_charity_org
     #get_user_charity_category(category) - take user's charity category of their choosing
     #get_charity_organizations_in_category - provides the users with a list of charity organizations within the category
     #list_charity_organizations
@@ -21,18 +21,19 @@ class CharityList::CLI
 
   def list_charity_orgs
       puts "\nPlease type in the number corresponding to a specific charity organization to see its metrics\n"
-      @charity_orgs.each.with_index(1) do |category, index|
-        puts "#{index}. #{category.title}" #had to put category.title to print out the actual names of the categories
+      @charity_orgs.each.with_index(1) do |org, index|
+        puts "#{index}. #{org.title} | Website: #{org.url}" #had to put category.title to print out the actual names of the categories
+        #binding.pry
       end
       #binding.pry
   end
 
 
-  def get_user_charity_category
-      chosen_category = gets.strip.to_i
-      show_charity_organizations_for(chosen_category) if valid_input(chosen_category, @category_list)
-      if !valid_input(chosen_category, @category_list)
-        get_user_charity_category until valid_input
+  def get_user_charity_org
+      chosen_org = gets.strip.to_i
+      show_charity_metrics_for(chosen_org) if valid_input(chosen_org, @charity_orgs)
+      if !valid_input(chosen_org, @charity_orgs)
+        get_user_charity_org until valid_input
       end
   end
 
@@ -41,19 +42,16 @@ class CharityList::CLI
       input.to_i <= data.length && input.to_i > 0
   end
 
-  def show_charity_organizations_for(chosen_category)
+  def show_charity_metrics_for(chosen_org)
       #category is the category within the @@all array corresponding to the user input.
       #for example, if the user input is 2, then it'll take the 2nd entry from the array. In this case, it'll be 2. AIDS Charities
-      category = @category_list[chosen_category - 1]
+    org = @charity_orgs[chosen_org - 1]
+    
       #calls the get_organizations method from the Category Class to scrape organization data from the website
       #the method below should shovel all the scraped organizations into @organizations array
-      category.get_organizations
-      puts "Here are all the charity organizations under the #{category.title}"
-      #binding.pry
-      category.organizations.each.with_index(1) do |organization, index|
-        puts "#{index}. #{organization.category.title} - #{organization.title}" #if index == chosen_category
-      #  binding.pry
-      end
+    org.get_metrics
+    puts "Here are all the metrics under #{org.metrics}"
+  #  binding.pry
   end
 
 
