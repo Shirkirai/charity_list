@@ -1,4 +1,9 @@
 class CharityList::CLI
+  @@grn="\e[1;32m"
+  @@white="\e[0m"
+  @@cyn="\e[1;36m"
+  @@blu="\e[1;34m"
+
   def call
     puts "\nWelcome to Charity List!\n"
     @input = ""
@@ -54,19 +59,21 @@ class CharityList::CLI
       #calls the get_organizations method from the Category Class to scrape organization data from the website
       #the method below should shovel all the scraped organizations into @organizations array
     metrics = org.get_metrics
-    puts "\nHere are all the metrics under #{org.title}\n"
-    puts "\nURL: #{metrics.url}\n"
-    puts "\nAddress: #{metrics.address}\n"
-    puts "\nMission Statement: #{metrics.mission_statement}\n"
-    puts "\nProgram Percentage: #{metrics.pp}"
+    puts "\nHere are all the metrics under #{@@cyn}#{org.title}#{@@white}\n"
+    puts "\nURL: #{@@cyn}#{metrics.url}#{@@white}\n"
+    puts "\nAddress: #{@@cyn}#{metrics.address}#{@@white}\n"
+    puts "\nMission Statement: #{@@cyn}#{metrics.mission_statement}#{@@white}\n"
+    puts "\nProgram Percentage: #{@@blu}#{metrics.pp}#{@@white}"
     puts "  *This is the Amount spent on programs relative to overhead*\n"
-    puts "\nCost to Raise $100: #{metrics.cont_cost}\n"
+    puts "\nCost to Raise $100: #{@@blu}#{metrics.cont_cost}#{@@white}\n"
     puts "  *Amount spent to raise $100 of contributions."
     puts ""
   end
 
   def what_next?
-    puts "If you wish to see the list of charity organizations again, please type 'Y', but otherwise, please type 'exit'."
+    puts "If you wish to see the list of charity organizations again, please type #{@@grn}'Y'#{@@white}, but otherwise, please type #{@@blu}'exit'#{
+    @@white
+    }."
     @input = gets.strip
   end
 
