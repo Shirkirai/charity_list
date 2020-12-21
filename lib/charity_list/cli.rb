@@ -22,7 +22,7 @@ class CharityList::CLI
   def list_charity_orgs
       puts "\nPlease type in the number corresponding to a specific charity organization to see its metrics\n"
       @charity_orgs.each.with_index(1) do |org, index|
-        puts "#{index}. #{org.title} | Website: #{org.url}" #had to put category.title to print out the actual names of the categories
+        puts "#{index}. #{org.title} | #{org.url}" #had to put category.title to print out the actual names of the categories
         #binding.pry
       end
       #binding.pry
@@ -46,7 +46,7 @@ class CharityList::CLI
       #category is the category within the @@all array corresponding to the user input.
       #for example, if the user input is 2, then it'll take the 2nd entry from the array. In this case, it'll be 2. AIDS Charities
     org = @charity_orgs[chosen_org - 1]
-    
+
       #calls the get_organizations method from the Category Class to scrape organization data from the website
       #the method below should shovel all the scraped organizations into @organizations array
     org.get_metrics
