@@ -16,9 +16,7 @@ class CharityList::Org
     end
 
     def get_metrics
-    
       CharityList::Scraper.scrape_metrics(self) if @metrics.empty?
-
     end
 
     def save

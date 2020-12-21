@@ -33,9 +33,7 @@ class CharityList::Scraper
       pp = program_percentage[0]
       cont_cost = program_percentage[2]
 
-      
-
-      binding.pry
+      CharityList::Metrics.new(chosen_org, url, address, mission_statement, pp, cont_cost)
 
 
       #metrics_info = metris.each do |m|

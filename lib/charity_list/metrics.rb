@@ -1,11 +1,17 @@
 class CharityList::Metrics
 
-  attr_accessor :mission_statement, :url, :orgs
+  attr_accessor :title, :mission_statement, :url, :orgs, :address, :mission_statement, :pp, :cont_cost
   @@all = []
 
-  def initialize(mission_statement)
-    @mission_statement
+  def initialize(title, url, address, mission_statement, pp, cont_cost)
+    @title = title
+    @mission_statement = mission_statement
     @url = url
+    @address = address
+    @mission_statement = mission_statement
+    @pp = pp
+    @cont_cost = cont_cost
+
     @orgs = orgs
     save
   end
