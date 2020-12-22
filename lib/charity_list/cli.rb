@@ -53,11 +53,7 @@ class CharityList::CLI
   end
 
   def show_charity_metrics_for(chosen_org)
-      #category is the category within the @@all array corresponding to the user input.
-      #for example, if the user input is 2, then it'll take the 2nd entry from the array. In this case, it'll be 2. AIDS Charities
     org = @charity_orgs[chosen_org - 1]
-      #calls the get_organizations method from the Category Class to scrape organization data from the website
-      #the method below should shovel all the scraped organizations into @organizations array
     metrics = org.get_metrics
     puts "\nHere are all the metrics under #{@@cyn}#{org.title}#{@@white}\n"
     puts "\nURL: #{@@cyn}#{metrics.url}#{@@white}\n"
