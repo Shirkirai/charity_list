@@ -13,9 +13,7 @@ class CharityList::Scraper
     end
 
     def self.scrape_metrics(chosen_org)
-      #doc = Nokogiri::HTML(open("https://www.charitynavigator.org/#{chosen_org.url}"))
       doc = Nokogiri::HTML(open("#{chosen_org.url.text}"))
-      #metrics = doc.css("div #app.mm-page.mm-slideout div.container main#main setion.section div.row div.col-12.col.sm-6.col-lg-3 p")
       info = doc.css("div.col-12.col-sm-6.col-lg-3 p").map {|x| x.text.gsub(/\s+/, " ").strip}
       address = info[0]
       url = info[3]

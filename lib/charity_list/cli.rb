@@ -14,16 +14,9 @@ class CharityList::CLI
       what_next?
     end
     thanks
-    #get_user_charity_category(category) - take user's charity category of their choosing
-    #get_charity_organizations_in_category - provides the users with a list of charity organizations within the category
-    #list_charity_organizations
   end
 
   def get_charity_orgs
-      #list the charity categories
-      #can test by using the fake data below
-      #Fake Data 1: CharityList::Charityorgs.new("AIDS")
-      #Fake Data 2: CharityList::Charityorgs.new("VA")
       @charity_orgs = CharityList::Org.all
       #binding.pry
   end
@@ -31,7 +24,7 @@ class CharityList::CLI
   def list_charity_orgs
       puts "\nPlease type in the number corresponding to a specific charity organization to see its metrics\n"
       @charity_orgs.each.with_index(1) do |org, index|
-        puts "#{index}. #{org.title} | #{org.url}" #had to put category.title to print out the actual names of the categories
+        puts "#{index}. #{org.title} | #{org.url}"
         #binding.pry
       end
       #binding.pry
